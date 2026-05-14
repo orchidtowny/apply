@@ -11,4 +11,5 @@ type Application struct {
 	WhereDidYouFindTheServer string  `json:"where_did_you_find_the_server"`
 	Bio                      string  `json:"bio"`
 	Invite                   *string `json:"invite"` // Optional, allows instant approval if valid
+	Status                   int     `json:"status"` // 0: Pending, 1: Rejected, 2: Approved
 }

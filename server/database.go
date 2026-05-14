@@ -9,15 +9,13 @@ import (
 	"gorm.io/gorm"
 )
 
-var database *gorm.DB
-
 func setupDatabase() {
 	db, openErr := gorm.Open(sqlite.Open("main.db"), &gorm.Config{})
 	if openErr != nil {
 		panic(openErr)
 	}
 
-	database = db
+	util.Database = db
 
 	fmt.Println("Connected to database")
 

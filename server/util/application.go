@@ -105,8 +105,8 @@ func GetRejectedApplications() []definition.Application {
 
 /*  ACTIONS  */
 
-// AcceptApplication will update the status of an application to be accepted
-func AcceptApplication(id string) {
+// ApproveApplication will update the status of an application to be accepted
+func ApproveApplication(id string) {
 	if Database == nil {
 		return
 	}

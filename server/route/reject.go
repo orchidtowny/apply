@@ -1,6 +1,12 @@
 package route
 
-import "net/http"
+import (
+	"apply/definition"
+	"apply/util"
+	"encoding/json"
+	"net/http"
+	"strings"
+)
 
 // Reject is a route for rejecting an application.
 // Intended for server-side mod to reject applicants.
@@ -11,5 +17,47 @@ func Reject(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	http.Error(w, "Not Implemented", http.StatusNotImplemented)
+	id := r.PathValue("id")
+	if id == "" {
+		http.Error(w, "ID required", http.StatusBadRequest)
+		return
+	}
+
+	authorization := r.Header.Get("Authorization")
+	if authorization == "" {
+		http.Error(w, "Authorization required", http.StatusUnauthorized)
+		return
+	}
+	if strings.HasPrefix(authorization, "Bearer ") {
+		http.Error(w, "Bearer authorization required", http.StatusUnauthorized)
+		return
+	}
+
+	if util.Config.ApiKey != strings.TrimPrefix(authorization, "Bearer ") {
+		http.Error(w, "Invalid authorization", http.StatusForbidden)
+		return
+	}
+
+	application := util.GetApplication(id)
+	if application == nil {
+		http.Error(w, "Application not found", http.StatusNotFound)
+		return
+	}
+
+	util.RejectApplication(application.Id)
+
+	body, marshalErr := json.Marshal(definition.GenericPostResponse{
+		Success: true,
+		Message: "Rejected application for " + application.Username,
+	})
+	if marshalErr != nil {
+		http.Error(w, marshalErr.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	_, writeErr := w.Write(body)
+	if writeErr != nil {
+		http.Error(w, writeErr.Error(), http.StatusInternalServerError)
+		return
+	}
 }

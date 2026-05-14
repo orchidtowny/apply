@@ -22,7 +22,6 @@ func setupDatabase() {
 	util.MustNotError(
 		db.AutoMigrate(
 			&definition.Application{},
-			&definition.Invite{},
 		),
 	)
 

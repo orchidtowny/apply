@@ -8,5 +8,6 @@ var config definition.Config
 
 func main() {
 	loadConfig()
+	setupDatabase()
 	startServer()
 }

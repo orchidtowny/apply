@@ -2,8 +2,8 @@ package route
 
 import "net/http"
 
-func CreateInvite(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodPost {
+func Info(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodGet {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		return
 	}

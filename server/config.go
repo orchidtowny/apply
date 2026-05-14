@@ -27,36 +27,31 @@ func loadConfig() {
 				Rules:             map[string]string{},
 			})
 			if marshalErr != nil {
-				fmt.Println("Error encoding default config:", marshalErr)
-				return
+				panic(marshalErr)
 			}
 
 			configBytes = marshal
 
 			writeErr := os.WriteFile("config.json", configBytes, 0660)
 			if writeErr != nil {
-				fmt.Println("Error creating config:", writeErr)
-				return
+				panic(writeErr)
 			}
 
 			return
 		}
 
-		fmt.Println("Error loading config:", openErr)
-		return
+		panic(openErr)
 	}
 
 	bytes, readErr := io.ReadAll(jsonData)
 	if readErr != nil {
-		fmt.Println("Error reading config:", readErr)
-		return
+		panic(readErr)
 	}
 
 	defer util.MustNotError(jsonData.Close())
 
 	unmarshalErr := json.Unmarshal(bytes, &config)
 	if unmarshalErr != nil {
-		fmt.Println("Error parsing config:", unmarshalErr)
-		return
+		panic(unmarshalErr)
 	}
 }

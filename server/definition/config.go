@@ -5,5 +5,6 @@ type Config struct {
 	ServerIp          string            `json:"server_ip"`
 	DiscordWebhookUrl string            `json:"discord_webhook_url"`
 	ApiKey            string            `json:"api_key"`
+	Open              bool              `json:"open"`
 	Rules             map[string]string `json:"rules"`
 }

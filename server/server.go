@@ -15,6 +15,6 @@ func startServer() {
 	http.HandleFunc("/api/invite", route.CreateInvite)
 	http.HandleFunc("/api/info", route.Info)
 
-	fmt.Println("Starting HTTP server at 0.0.0.0.0:" + strconv.Itoa(config.Port))
-	util.MustNotError(http.ListenAndServe("0.0.0.0:"+strconv.Itoa(config.Port), nil))
+	fmt.Println("Starting HTTP server at 0.0.0.0.0:" + strconv.Itoa(util.Config.Port))
+	util.MustNotError(http.ListenAndServe("0.0.0.0:"+strconv.Itoa(util.Config.Port), nil))
 }

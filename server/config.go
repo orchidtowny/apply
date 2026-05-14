@@ -50,7 +50,7 @@ func loadConfig() {
 
 	defer util.MustNotError(jsonData.Close())
 
-	unmarshalErr := json.Unmarshal(bytes, &config)
+	unmarshalErr := json.Unmarshal(bytes, &util.Config)
 	if unmarshalErr != nil {
 		panic(unmarshalErr)
 	}

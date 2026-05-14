@@ -1,6 +1,11 @@
 package route
 
-import "net/http"
+import (
+	"apply/definition"
+	"apply/util"
+	"encoding/json"
+	"net/http"
+)
 
 // Info is a route for getting information to show on the form.
 // Intended only for frontend, getting rules, etc.
@@ -10,5 +15,20 @@ func Info(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	http.Error(w, "Not Implemented", http.StatusNotImplemented)
+	w.Header().Set("Content-Type", "application/json")
+
+	body, marshalErr := json.Marshal(definition.InfoResponse{
+		Open:  util.Config.Open,
+		Rules: util.Config.Rules,
+	})
+	if marshalErr != nil {
+		http.Error(w, marshalErr.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	_, writeErr := w.Write(body)
+	if writeErr != nil {
+		http.Error(w, writeErr.Error(), http.StatusInternalServerError)
+		return
+	}
 }

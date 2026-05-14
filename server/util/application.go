@@ -10,6 +10,8 @@ import (
 
 var ctx = context.Background()
 
+/*  CREATE  */
+
 // CreateApplication inserts application into database and pushes notifications if configured
 func CreateApplication(application definition.Application) {
 	if Database == nil {
@@ -21,6 +23,8 @@ func CreateApplication(application definition.Application) {
 		fmt.Println("Error creating application", err)
 	}
 }
+
+/*  GET  */
 
 // GetApplication gets an application by the ID
 func GetApplication(id string) *definition.Application {
@@ -36,6 +40,70 @@ func GetApplication(id string) *definition.Application {
 
 	return &application
 }
+
+// GetApplicationByUsername gets an application by the username
+func GetApplicationByUsername(username string) *definition.Application {
+	if Database == nil {
+		return nil
+	}
+
+	application, err := gorm.G[definition.Application](Database).Where("username = ?", username).First(ctx)
+	if err != nil {
+		fmt.Println("Error getting application", err)
+		return nil
+	}
+
+	return &application
+}
+
+/*  GET MANY  */
+
+// GetPendingApplications gets all pending applications
+func GetPendingApplications() []definition.Application {
+	if Database == nil {
+		return nil
+	}
+
+	applications, err := gorm.G[definition.Application](Database).Where("status = ?", 0).Find(ctx)
+	if err != nil {
+		fmt.Println("Error getting applications", err)
+		return nil
+	}
+
+	return applications
+}
+
+// GetApprovedApplications gets all approved applications
+func GetApprovedApplications() []definition.Application {
+	if Database == nil {
+		return nil
+	}
+
+	applications, err := gorm.G[definition.Application](Database).Where("status = ?", 2).Find(ctx)
+	if err != nil {
+		fmt.Println("Error getting applications", err)
+		return nil
+	}
+
+	return applications
+}
+
+// GetRejectedApplications gets all rejected applications
+func GetRejectedApplications() []definition.Application {
+	if Database == nil {
+		return nil
+	}
+
+	applications, err := gorm.G[definition.Application](Database).Where("status = ?", 1).Find(ctx)
+	if err != nil {
+		fmt.Println("Error getting applications", err)
+		return nil
+	}
+
+	return applications
+}
+
+/*  ACTIONS  */
 
 // AcceptApplication will update the status of an application to be accepted
 func AcceptApplication(id string) {

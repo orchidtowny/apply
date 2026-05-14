@@ -1,6 +1,11 @@
 package route
 
-import "net/http"
+import (
+	"apply/definition"
+	"apply/util"
+	"encoding/json"
+	"net/http"
+)
 
 // CheckStatus is a route for checking if a username is approved.
 // Intended for backend if the list doesn't contain a username yet OR if a user wants to check their status.
@@ -16,5 +21,26 @@ func CheckStatus(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	http.Error(w, "Not Implemented", http.StatusNotImplemented)
+	application := util.GetApplicationByUsername(username)
+	if application == nil {
+		http.Error(w, "Application not found", http.StatusNotFound)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+
+	body, marshalErr := json.Marshal(definition.StatusResponse{
+		Username: application.Username,
+		Status:   application.Status,
+	})
+	if marshalErr != nil {
+		http.Error(w, marshalErr.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	_, writeErr := w.Write(body)
+	if writeErr != nil {
+		http.Error(w, writeErr.Error(), http.StatusInternalServerError)
+		return
+	}
 }

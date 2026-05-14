@@ -10,7 +10,8 @@ import (
 
 func startServer() {
 	http.HandleFunc("/api/apply", route.Apply)
-	http.HandleFunc("/api/status", route.CheckStatus)
+	http.HandleFunc("/api/approved", route.Approved)
+	http.HandleFunc("/api/status/{username}", route.CheckStatus)
 	http.HandleFunc("/api/invite", route.CreateInvite)
 	http.HandleFunc("/api/info", route.Info)
 

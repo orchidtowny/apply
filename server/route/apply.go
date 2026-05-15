@@ -102,6 +102,7 @@ func Apply(w http.ResponseWriter, r *http.Request) {
 				{
 					Title:     "New Application for " + application.Username,
 					Timestamp: time.Now().Format(time.RFC3339),
+					Color:     0x616161,
 					Fields: []definition.DiscordWebhookEmbedField{
 						{
 							Name:   "ID",

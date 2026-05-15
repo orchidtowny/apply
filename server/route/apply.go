@@ -64,10 +64,20 @@ func Apply(w http.ResponseWriter, r *http.Request) {
 
 	id := uuid.New().String()
 	fmt.Println("Creating application " + id + " for user " + jsonBody.Username)
+
+	escapedUsername := html.EscapeString(jsonBody.Username)
+	foundUuid := util.GetPlayerUuid(escapedUsername)
+
+	if foundUuid == "" {
+		http.Error(w, "Couldn't fetch your information from Mojang.", http.StatusFailedDependency)
+		return
+	}
+
 	util.CreateApplication(definition.Application{
 		Id: id,
 
-		Username:                 html.EscapeString(jsonBody.Username),
+		Username:                 escapedUsername,
+		Uuid:                     foundUuid,
 		Age:                      jsonBody.Age,
 		WhereDidYouFindTheServer: html.EscapeString(jsonBody.WhereDidYouFindTheServer),
 		Bio:                      html.EscapeString(jsonBody.Bio),
@@ -90,8 +100,7 @@ func Apply(w http.ResponseWriter, r *http.Request) {
 			Username: "Applications",
 			Embeds: []definition.DiscordWebhookEmbed{
 				{
-					Title:     "New Application",
-					Color:     0xDA3A6A,
+					Title:     "New Application for " + application.Username,
 					Timestamp: time.Now().Format(time.RFC3339),
 					Fields: []definition.DiscordWebhookEmbedField{
 						{

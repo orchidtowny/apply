@@ -7,6 +7,7 @@ type Application struct {
 
 	Id                       string `json:"id"`
 	Username                 string `json:"username"` // Ingame username
+	Uuid                     string `json:"uuid"`
 	Age                      int    `json:"age"`
 	WhereDidYouFindTheServer string `json:"where_did_you_find_the_server"`
 	Bio                      string `json:"bio"`

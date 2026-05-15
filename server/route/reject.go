@@ -69,6 +69,7 @@ func Reject(w http.ResponseWriter, r *http.Request) {
 				{
 					Title:     "Rejected Application for " + application.Username,
 					Timestamp: time.Now().Format(time.RFC3339),
+					Color:     0xEA6A6A,
 					Fields: []definition.DiscordWebhookEmbedField{
 						{
 							Name:   "ID",

@@ -68,6 +68,7 @@ func Approve(w http.ResponseWriter, r *http.Request) {
 			Embeds: []definition.DiscordWebhookEmbed{
 				{
 					Title:     "Approved Application for " + application.Username,
+					Color:     0x77C268,
 					Timestamp: time.Now().Format(time.RFC3339),
 					Fields: []definition.DiscordWebhookEmbedField{
 						{

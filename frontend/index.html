@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply - Orchid</title>
+
+    <link rel="stylesheet" href="/assets/index.css">
+    <script src="/assets/index.js"></script>
+</head>
+<body>
+<noscript>Sorry, this application relies on JavaScript.</noscript>
+
+<main>
+    <span class="horizontal-center gap-8">
+        <img class="logo" alt="Orchid logo" src="/assets/logo.png" />
+        <h1>Apply to be Whitelisted</h1>
+    </span>
+    <p>
+        These go through manual review, it may take up to 12 hours for an application to be approved.
+        <br /><br />
+        Applications are unlikely to be rejected, we have this system to reduce griefing and trolling.
+        <br /><br />
+        If this application is for an alt, mention your main account. It will speed up our approval.
+        <br /><br />
+        <a href="/status">
+            <span class="horizontal-center gap-4">
+                Check status of past application
+                <span class="tabler-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-external-link"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6" /><path d="M11 13l9 -9" /><path d="M15 4h5v5" /></svg>
+                </span>
+            </span>
+        </a>
+    </p>
+
+    <div class="alert" id="alert" hidden></div>
+
+    <form id="form">
+        <label>
+            <span>Minecraft Username <span class="req">*</span> </span>
+            <input name="username" type="text" placeholder="Steve">
+        </label>
+
+        <label>
+            <span>Age <span class="req">*</span> </span>
+            <input name="age" type="number" placeholder="0">
+        </label>
+
+        <label>
+            <span>Where did you find Orchid? <span class="req">*</span> </span>
+            <input name="where_did_you_find_the_server" type="text" placeholder="A friend, Planet Minecraft, etc.">
+        </label>
+
+        <label>
+            <span>Tell us a little about yourself <span class="req">*</span> </span>
+            <textarea name="bio" type="text" placeholder="Write here..." rows="3"></textarea>
+        </label>
+
+        <button type="submit" class="submittable">
+            Submit
+        </button>
+    </form>
+</main>
+</body>
+</html>

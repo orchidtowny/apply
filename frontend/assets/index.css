@@ -1,0 +1,151 @@
+:root {
+    color-scheme: light dark;
+
+    color: var(--tx-2);
+    font-size: 0.90rem;
+
+    --bg-1: #242329;
+    --bg-2: #1b1a1f;
+    --bg-3: #0c0b0e;
+
+    --bg-1-50: #24232950;
+    --bg-2-50: #1b1a1f50;
+    --bg-3-50: #0c0b0e50;
+
+    --bg-1-99: #24232999;
+    --bg-2-99: #1b1a1f99;
+    --bg-3-99: #0c0b0e99;
+
+    --tx-1: #ffffff;
+    --tx-2: #d3d4d4;
+    --tx-3: #a8afaf;
+
+    --success: #18cb6e;
+
+    --orchid: #da70d6;
+    --orchid-50: #da70d650;
+    --orchid-25: #da70d625;
+
+    --funky-effect: inset 0 -0.1rem 2.5px #00000020, inset 0 0.035rem 1px #ffffff05,
+        inset 0 0.055rem 2.5px #ffffff05;
+}
+
+html,
+button, input, textarea {
+    font-family: system-ui, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0;
+    background: var(--bg-1);
+    font-size: var(--font-size);
+    color: var(--tx-2);
+}
+
+main {
+    margin: 50px 10px;
+    max-width: 500px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+a {
+    color: var(--orchid);
+
+    text-decoration: underline;
+    text-decoration-color: var(--orchid-50);
+}
+
+a span {
+    text-decoration: underline;
+    text-decoration-color: var(--orchid-50);
+}
+
+.logo {
+    height: 36px;
+    width: 36px;
+}
+
+.horizontal-center {
+    display: inline-flex;
+    align-items: center;
+}
+
+.gap-4 {
+    gap: 4px;
+}
+
+.gap-8 {
+    gap: 8px;
+}
+
+.tabler-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 18px;
+    width: 18px;
+}
+
+h1, p {
+    margin: 0;
+}
+
+h1 {
+    color: var(--tx-1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    max-width: 80px;
+}
+
+button,
+input,
+textarea {
+    border: none;
+    border-radius: 10px;
+    box-shadow: var(--funky-effect);
+    background: var(--bg-2);
+
+    font-size: var(--font-size);
+    padding: 8px 12px;
+}
+
+button:focus-within,
+input:focus-within,
+textarea:focus-within {
+    outline: 2px solid var(--orchid-25);
+    outline-offset: 1px;
+}
+
+button.submittable {
+    background: var(--orchid-50);
+}
+
+.req {
+    color: #ff3838;
+}

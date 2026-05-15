@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Status - Orchid</title>
+
+    <link rel="stylesheet" href="/assets/index.css">
+    <script src="/assets/check.js"></script>
+</head>
+<body>
+<noscript>Sorry, this application relies on JavaScript.</noscript>
+
+<main>
+    <span class="horizontal-center gap-8">
+        <img class="logo" alt="Orchid logo" src="/assets/logo.png" />
+        <h1>Application Status</h1>
+    </span>
+    <p>
+        <a href="/">
+            <span class="horizontal-center gap-4">
+                Return to form
+                <span class="tabler-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-external-link"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6" /><path d="M11 13l9 -9" /><path d="M15 4h5v5" /></svg>
+                </span>
+            </span>
+        </a>
+
+        <form id="check-form">
+            <label>
+                Username
+                <input name="username" type="text" placeholder="Steve" />
+            </label>
+
+            <button type="submit" class="submittable">
+                Check
+            </button>
+        </form>
+
+        <div id="checked-user">
+            <p>No user provided</p>
+        </div>
+    </p>
+</main>
+</body>
+</html>

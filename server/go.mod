@@ -1,4 +1,4 @@
-module apply
+module applyServer
 
 go 1.26
 

@@ -1,5 +1,5 @@
 package util
 
-import "apply/definition"
+import "applyServer/definition"
 
 var Config definition.Config

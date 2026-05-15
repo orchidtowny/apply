@@ -1,8 +1,8 @@
 package main
 
 import (
-	"apply/definition"
-	"apply/util"
+	"applyServer/definition"
+	"applyServer/util"
 	"fmt"
 
 	"gorm.io/driver/sqlite"

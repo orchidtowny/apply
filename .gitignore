@@ -2,3 +2,5 @@ config.json
 node_modules
 .idea
 main.db
+build/
+whitelist.json

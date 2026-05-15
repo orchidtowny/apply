@@ -1,8 +1,8 @@
 package main
 
 import (
-	"apply/route"
-	"apply/util"
+	"applyServer/route"
+	"applyServer/util"
 	"fmt"
 	"net/http"
 	"strconv"

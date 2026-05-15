@@ -1,8 +1,8 @@
 package main
 
 import (
-	"apply/definition"
-	"apply/util"
+	"applyServer/definition"
+	"applyServer/util"
 	"encoding/json"
 	"fmt"
 	"io"

@@ -1,8 +1,8 @@
 package route
 
 import (
-	"apply/definition"
-	"apply/util"
+	"applyServer/definition"
+	"applyServer/util"
 	"encoding/json"
 	"net/http"
 	"strings"
@@ -29,7 +29,7 @@ func Reject(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Authorization required", http.StatusUnauthorized)
 		return
 	}
-	if strings.HasPrefix(authorization, "Bearer ") {
+	if !strings.HasPrefix(authorization, "Bearer ") {
 		http.Error(w, "Bearer authorization required", http.StatusUnauthorized)
 		return
 	}

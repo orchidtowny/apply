@@ -1,8 +1,8 @@
 package route
 
 import (
-	"apply/definition"
-	"apply/util"
+	"applyServer/definition"
+	"applyServer/util"
 	"encoding/json"
 	"net/http"
 	"strings"
@@ -22,7 +22,7 @@ func Approved(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Authorization required", http.StatusUnauthorized)
 		return
 	}
-	if strings.HasPrefix(authorization, "Bearer ") {
+	if !strings.HasPrefix(authorization, "Bearer ") {
 		http.Error(w, "Bearer authorization required", http.StatusUnauthorized)
 		return
 	}
@@ -34,15 +34,16 @@ func Approved(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json")
 
-	var usernames []string
+	var usernames []definition.MinecraftPlayer
 	approved := util.GetApprovedApplications()
 	for _, user := range approved {
-		usernames = append(usernames, user.Username)
+		usernames = append(usernames, definition.MinecraftPlayer{
+			Uuid:     user.Uuid,
+			Username: user.Username,
+		})
 	}
 
-	body, marshalErr := json.Marshal(definition.ApprovedUsers{
-		Usernames: usernames,
-	})
+	body, marshalErr := json.Marshal(usernames)
 	if marshalErr != nil {
 		http.Error(w, marshalErr.Error(), http.StatusInternalServerError)
 		return

@@ -1,8 +1,8 @@
 package route
 
 import (
-	"apply/definition"
-	"apply/util"
+	"applyServer/definition"
+	"applyServer/util"
 	"encoding/json"
 	"net/http"
 )

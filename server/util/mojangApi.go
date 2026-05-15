@@ -1,7 +1,7 @@
 package util
 
 import (
-	"apply/definition"
+	"applyServer/definition"
 	"encoding/json"
 	"fmt"
 	"io"

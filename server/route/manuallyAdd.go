@@ -19,7 +19,7 @@ func ManuallyAdd(w http.ResponseWriter, r *http.Request) {
 				http.Error(w, "Authorization required", http.StatusUnauthorized)
 				return
 			}
-			if strings.HasPrefix(authorization, "Bearer ") {
+			if !strings.HasPrefix(authorization, "Bearer ") {
 				http.Error(w, "Bearer authorization required", http.StatusUnauthorized)
 				return
 			}

@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"net/http"
 	"strings"
+	"time"
 )
 
 // Reject is a route for rejecting an application.
@@ -60,4 +61,29 @@ func Reject(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, writeErr.Error(), http.StatusInternalServerError)
 		return
 	}
+
+	go func() {
+		util.SendWebhookMessage(definition.DiscordWebhook{
+			Username: "Applications",
+			Embeds: []definition.DiscordWebhookEmbed{
+				{
+					Title:     "Rejected Application for " + application.Username,
+					Timestamp: time.Now().Format(time.RFC3339),
+					Fields: []definition.DiscordWebhookEmbedField{
+						{
+							Name:   "ID",
+							Value:  id,
+							Inline: true,
+						},
+					},
+					Author: &definition.DiscordWebhookEmbedAuthor{
+						Name:    application.Username,
+						IconUrl: "https://mc-heads.net/head/" + application.Username,
+					},
+				},
+			},
+		})
+	}()
+
+	return
 }

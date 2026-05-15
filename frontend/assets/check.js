@@ -1,13 +1,11 @@
 window.onload = () => {
     const form = document.getElementById("check-form")
-    if (!(form instanceof HTMLFormElement)) return
+    if (!(form instanceof HTMLFormElement)) {
+        console.log("error with check-form, fail at !instanceof")
+        return
+    }
 
-    form.onsubmit = (ev) => {
-        ev.preventDefault()
-
-        const data = new FormData(event.target);
-        const username = data.get("username")
-
+    function tryUsername(username) {
         window.fetch(
             "/api/status/"+username,
             { method: "GET" }
@@ -17,16 +15,16 @@ window.onload = () => {
             if (response.status === 200) {
                 const json = await response.json()
 
-                let message
+                let message = "Unknown"
                 switch (json?.status) {
-                    case '0':
-                        message = "Application still awaiting approval."
-                        break
-                    case '1':
+                    case 1:
                         message = "Application rejected."
                         break
-                    case '2':
+                    case 2:
                         message = "Application approved."
+                        break
+                    default:
+                        message = "Application still awaiting approval."
                         break
                 }
 
@@ -43,5 +41,21 @@ window.onload = () => {
                 `
             }
         })
+    }
+
+    const query = new URLSearchParams(window.location.search)
+    const existingUsername = query.get("username")
+
+    if (existingUsername !== "" && existingUsername !== undefined) {
+        tryUsername(existingUsername)
+    }
+
+    form.onsubmit = (ev) => {
+        ev.preventDefault()
+
+        const data = new FormData(event.target);
+        const username = data.get("username")
+
+        tryUsername(username)
     }
 }

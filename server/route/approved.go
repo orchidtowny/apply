@@ -53,4 +53,6 @@ func Approved(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, writeErr.Error(), http.StatusInternalServerError)
 		return
 	}
+
+	return
 }

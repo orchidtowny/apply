@@ -8,7 +8,7 @@ type DiscordWebhook struct {
 type DiscordWebhookEmbed struct {
 	Title     string                     `json:"title"`
 	Timestamp string                     `json:"timestamp"`
-	Color     string                     `json:"color"`
+	Color     int                        `json:"color"`
 	Author    *DiscordWebhookEmbedAuthor `json:"author"`
 	Fields    []DiscordWebhookEmbedField `json:"fields"`
 }

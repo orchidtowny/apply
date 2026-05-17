@@ -1,10 +1,11 @@
 package route
 
 import (
-	"applyServer/definition"
-	"applyServer/util"
 	"encoding/json"
 	"net/http"
+
+	"orchidmc.org/apply/server/definition"
+	"orchidmc.org/apply/server/util"
 )
 
 // CheckStatus is a route for checking if a username is approved.

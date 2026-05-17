@@ -1,8 +1,6 @@
 package route
 
 import (
-	"applyServer/definition"
-	"applyServer/util"
 	"encoding/json"
 	"fmt"
 	"html"
@@ -10,6 +8,9 @@ import (
 	"net/http"
 	"strconv"
 	"time"
+
+	"orchidmc.org/apply/server/definition"
+	"orchidmc.org/apply/server/util"
 
 	"github.com/google/uuid"
 )

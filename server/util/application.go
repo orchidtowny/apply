@@ -1,9 +1,10 @@
 package util
 
 import (
-	"applyServer/definition"
 	"context"
 	"fmt"
+
+	"orchidmc.org/apply/server/definition"
 
 	"gorm.io/gorm"
 )

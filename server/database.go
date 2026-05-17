@@ -1,9 +1,10 @@
 package main
 
 import (
-	"applyServer/definition"
-	"applyServer/util"
 	"fmt"
+
+	"orchidmc.org/apply/server/definition"
+	"orchidmc.org/apply/server/util"
 
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"

@@ -1,5 +1,5 @@
 package util
 
-import "applyServer/definition"
+import "orchidmc.org/apply/server/definition"
 
 var Config definition.Config

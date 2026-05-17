@@ -1,11 +1,12 @@
 package util
 
 import (
-	"applyServer/definition"
 	"encoding/json"
 	"fmt"
 	"io"
 	"net/http"
+
+	"orchidmc.org/apply/server/definition"
 )
 
 func GetPlayerUuid(username string) string {

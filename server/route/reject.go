@@ -1,12 +1,13 @@
 package route
 
 import (
-	"applyServer/definition"
-	"applyServer/util"
 	"encoding/json"
 	"net/http"
 	"strings"
 	"time"
+
+	"orchidmc.org/apply/server/definition"
+	"orchidmc.org/apply/server/util"
 )
 
 // Reject is a route for rejecting an application.

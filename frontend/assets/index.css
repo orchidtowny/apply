@@ -149,3 +149,11 @@ button.submittable {
 .req {
     color: #ff3838;
 }
+
+.adminApplicationEntry {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    border-bottom: 1px solid var(--bg-2);
+}

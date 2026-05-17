@@ -1,11 +1,12 @@
 package route
 
 import (
-	"applyServer/definition"
-	"applyServer/util"
 	"encoding/json"
 	"net/http"
 	"strings"
+
+	"orchidmc.org/apply/server/definition"
+	"orchidmc.org/apply/server/util"
 )
 
 // Approved is a route for checking a list of all approved usernames.

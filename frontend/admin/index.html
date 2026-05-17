@@ -6,7 +6,7 @@
     <title>Application Status - Orchid</title>
 
     <link rel="stylesheet" href="/assets/index.css">
-    <script src="/assets/check.js"></script>
+    <script src="/assets/admin.js"></script>
 </head>
 <body>
 <noscript>Sorry, this application relies on JavaScript.</noscript>
@@ -14,7 +14,7 @@
 <main>
     <span class="horizontal-center gap-8">
         <img class="logo" alt="Orchid logo" src="/assets/logo.png" />
-        <h1>Application Status</h1>
+        <h1>Admin Panel</h1>
     </span>
     <p>
         <a href="/">
@@ -26,19 +26,17 @@
             </span>
         </a>
     </p>
-    <form id="check-form">
-        <label>
-            Username
-            <input name="username" type="text" placeholder="Steve" />
-        </label>
 
-        <button type="submit" class="submittable">
-            Check
-        </button>
-    </form>
+    <div id="auth">
+        <form>
+            <label>
+                Password
+                <input name="password" type="password">
+            </label>
+        </form>
+    </div>
+    <div id="list">
 
-    <div id="checked-user">
-        <p>No user provided</p>
     </div>
 </main>
 </body>

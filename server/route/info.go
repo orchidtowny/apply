@@ -1,10 +1,11 @@
 package route
 
 import (
-	"applyServer/definition"
-	"applyServer/util"
 	"encoding/json"
 	"net/http"
+
+	"orchidmc.org/apply/server/definition"
+	"orchidmc.org/apply/server/util"
 )
 
 // Info is a route for getting information to show on the form.

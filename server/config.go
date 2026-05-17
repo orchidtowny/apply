@@ -1,12 +1,13 @@
 package main
 
 import (
-	"applyServer/definition"
-	"applyServer/util"
 	"encoding/json"
 	"fmt"
 	"io"
 	"os"
+
+	"orchidmc.org/apply/server/definition"
+	"orchidmc.org/apply/server/util"
 
 	"github.com/google/uuid"
 )

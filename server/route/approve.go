@@ -1,12 +1,13 @@
 package route
 
 import (
-	"applyServer/definition"
-	"applyServer/util"
 	"encoding/json"
 	"net/http"
 	"strings"
 	"time"
+
+	"orchidmc.org/apply/server/definition"
+	"orchidmc.org/apply/server/util"
 )
 
 // Approve is a route for approving an application.

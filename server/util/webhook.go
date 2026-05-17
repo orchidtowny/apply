@@ -1,12 +1,13 @@
 package util
 
 import (
-	"applyServer/definition"
 	"bytes"
 	"encoding/json"
 	"fmt"
 	"io"
 	"net/http"
+
+	"orchidmc.org/apply/server/definition"
 )
 
 func SendWebhookMessage(msg definition.DiscordWebhook) {

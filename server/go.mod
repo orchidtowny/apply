@@ -1,4 +1,4 @@
-module applyServer
+module orchidmc.org/apply/server
 
 go 1.26
 

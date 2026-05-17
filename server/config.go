@@ -25,6 +25,7 @@ func loadConfig() {
 				ServerIp:          "play.orchidmc.org",
 				ApiKey:            uuid.New().String(),
 				DiscordWebhookUrl: "",
+				Open:              true,
 				Rules:             map[string]string{},
 			})
 			if marshalErr != nil {

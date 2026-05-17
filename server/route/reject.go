@@ -80,7 +80,7 @@ func Reject(w http.ResponseWriter, r *http.Request) {
 					},
 					Author: &definition.DiscordWebhookEmbedAuthor{
 						Name:    application.Username,
-						IconUrl: "https://mc-heads.net/head/" + application.Username,
+						IconUrl: "https://mc-heads.net/head/" + application.Uuid,
 					},
 				},
 			},

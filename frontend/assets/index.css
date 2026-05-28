@@ -157,3 +157,19 @@ button.submittable {
 
     border-bottom: 1px solid var(--bg-2);
 }
+
+html.dyslexic-font {
+    font-family: 'OpenDyslexicRegular', 'OpenDyslexic', sans-serif !important;
+}
+
+
+.dyslexia-button {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: 9999;
+
+    padding: 8px 12px;
+    background: var(--orchid-50);
+}
+

@@ -39,3 +39,16 @@ window.onload = () => {
         })
     }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const dbutton = document.getElementById("dyslexiaToggle");
+    if (!dbutton) return;
+
+    dbutton.addEventListener("click", () => {
+        document.documentElement.classList.toggle("dyslexic-font");
+
+        const enabled = document.documentElement.classList.contains("dyslexic-font");
+        dbutton.textContent = enabled ? "Disable Dyslexia Font" : "Dyslexia Font";
+    });
+});
+
